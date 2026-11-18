@@ -1,0 +1,6 @@
+node_modules/
+.env
+state.json
+logs/
+.DS_Store
+docs/design-interview.md

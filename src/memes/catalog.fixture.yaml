@@ -1,0 +1,17 @@
+# Small fixture catalog for the memes tests. Invented files and links.
+- file: soup-cat.jpeg
+  description: A cat in a soup bowl
+  goodFor: someone asks who wants soup
+  post: https://bsky.app/profile/homer.example/post/3fixture0001
+
+- file: horse-stare.png
+  description: |
+    A horse staring
+    at the camera
+  goodFor: the horse thing comes up again
+  post: https://bsky.app/profile/homer.example/post/3fixture0002
+  notes: kept for the horse bit
+
+- file: unposted-wave.mp4
+  description: A wave crashing (video)
+  goodFor: big change is coming

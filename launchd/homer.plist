@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!-- Homer as a per-user LaunchAgent: starts at login, restarts on a crash. See launchd/README.md.
+     No secrets here: node loads .env itself (env-file, relative to WorkingDirectory).
+     Same as `pnpm start`, but as ONE node process (tsx loaded with import), so a kill leaves no child behind. -->
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.joe.homer-bluesky</string>
+  <key>WorkingDirectory</key>
+  <string>/Users/joe/Developer/bluesky-bot</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/opt/homebrew/bin/node</string>
+    <string>--env-file=.env</string>
+    <string>--import</string>
+    <string>tsx</string>
+    <string>src/main.ts</string>
+  </array>
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>PATH</key>
+    <string>/opt/homebrew/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+  </dict>
+  <key>RunAtLoad</key>
+  <true/>
+  <key>KeepAlive</key>
+  <true/>
+  <!-- A crash loop restarts at most once a minute, so it cannot hammer Bluesky or the model gateway. -->
+  <key>ThrottleInterval</key>
+  <integer>60</integer>
+  <key>StandardOutPath</key>
+  <string>/Users/joe/Developer/bluesky-bot/logs/launchd.log</string>
+  <key>StandardErrorPath</key>
+  <string>/Users/joe/Developer/bluesky-bot/logs/launchd.log</string>
+</dict>
+</plist>

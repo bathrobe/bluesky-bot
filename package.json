@@ -1,0 +1,26 @@
+{
+  "name": "homer-bluesky",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@10.6.2",
+  "scripts": {
+    "start": "tsx --env-file=.env src/main.ts",
+    "peek": "tsx --env-file=.env scripts/peek.ts",
+    "tick": "tsx --env-file=.env scripts/tick.ts",
+    "gm": "tsx --env-file=.env scripts/gm.ts",
+    "last": "tsx scripts/last.ts",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@atproto/api": "0.32.0",
+    "yaml": "^2.9.1",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2",
+    "vitest": "^5.1.0"
+  }
+}
